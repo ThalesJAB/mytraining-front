@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Criando Treino</h2>
+<mat-dialog-content class="mat-typography">
+  <form action="" [formGroup]="formulario">
+    <mat-form-field class="fullWidth">
+      <mat-label>Título</mat-label>
+      <input [(ngModel)]="workout.name" matInput type="text" formControlName="name" name="name"
+        placeholder="Ex. Treino Peito e Tríceps" />
+    </mat-form-field>
+
+    <mat-form-field class="fullWidth">
+      <mat-label>Descrição</mat-label>
+      <textarea [(ngModel)]="workout.description" matInput type="text" formControlName="description" name="description"
+        placeholder="Ex. Treino de força, aumento de carga"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tipo de treino</mat-label>
+      <mat-select [(ngModel)]="workout.trainingType" formControlName="trainingType" name="trainingType">
+        <mat-option *ngFor="let trainingType of trainingTypes" [value]="trainingType.value">
+          {{ trainingType.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h3 class="fullWidth">Lista de exercícios</h3>
+
+    <span>
+      <button (click)="addExercise()" mat-raised-button color="primary">
+        <i class="material-icons addicon">add_circle_outline</i>
+        Adicionar exercício
+      </button>
+    </span>
+
+    <div>
+
+
+      <app-exercise-expansion-create *ngFor="let exercicio of listaDeExercicios"
+        (formDataSaved)="saveExercise($event)">
+
+
+
+
+      </app-exercise-expansion-create>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="createWorkout()" cdkFocusInitial>Criar</button>
+</mat-dialog-actions>

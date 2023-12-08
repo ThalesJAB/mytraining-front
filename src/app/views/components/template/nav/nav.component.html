@@ -1,0 +1,48 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <img src="assets/img/Logo.png" alt="" />
+    <mat-nav-list class="nav-list">
+      <mat-list-item>
+        <a routerLink="home">
+          <i class="material-icons">home</i>
+          Home
+        </a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a routerLink="/">
+          <i class="material-icons">account_circle</i>
+          Conta
+        </a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <a routerLink="planos-de-treino">
+          <i class="material-icons">view_list</i>
+          Planos de Treino
+        </a>
+      </mat-list-item>
+
+      <mat-list-item  >
+        <a (click) = "logout()">
+          <i class="material-icons">logout</i>
+          Logout
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <app-header></app-header>
+
+    <button
+      class="menu mat-elevation-z8"
+      (click)="drawer.toggle()"
+      mat-icon-button
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

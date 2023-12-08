@@ -1,0 +1,75 @@
+<div class="container mat-elevation-z8">
+    <form [formGroup]="formulario" action="" class="form">
+
+        <h1 class="fullWidth">Novo plano de treino</h1>
+
+        <mat-form-field class="fullWidth">
+            <mat-label>Titulo</mat-label>
+            <input [(ngModel)]="workoutPlan.title" matInput formControlName="title" type="text" name="title"
+                placeholder="Ex. Treino Pedro Outubro" />
+        </mat-form-field>
+
+        <mat-form-field class="fullWidth">
+            <mat-label>Descrição</mat-label>
+            <textarea [(ngModel)]="workoutPlan.description" matInput formControlName="description" type="text"
+                name="description" placeholder="Ex. Treino focado em Hipertrofia"></textarea>
+        </mat-form-field>
+
+        <div class="dateWidth">
+            <mat-form-field class="datePicker">
+                <mat-label>Data de Início</mat-label>
+                <input [(ngModel)]="workoutPlan.startDate" matInput formControlName="startDate" name="startDate"
+                    [matDatepicker]="startDatePicker">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatePicker></mat-datepicker>
+            </mat-form-field>
+
+
+
+
+            <mat-form-field class="datePicker">
+                <mat-label>Data de Término</mat-label>
+                <input [(ngModel)]="workoutPlan.finishDate" matInput formControlName="finishDate" name="finishDate"
+                    [matDatepicker]="finishDatePicker">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="finishDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #finishDatePicker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+        <h2 class="fullWidth">Lista de treinos</h2>
+
+
+        <span>
+            <button (click)="openDialog()" mat-raised-button color="primary">
+                <i class="material-icons addicon">add_circle_outline</i>
+                Adicionar treino</button>
+        </span>
+
+
+
+        <div>
+
+            <app-workout-expansion-panel *ngFor="let workout of workoutPlan.workoutsList"
+                [workout]="workout"
+                (deleteWorkoutEvent)="deleteWorkout($event)"
+                
+            ></app-workout-expansion-panel>
+
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+
+
+
+
+</div>

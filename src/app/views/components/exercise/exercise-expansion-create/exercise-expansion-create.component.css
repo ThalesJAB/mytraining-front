@@ -1,0 +1,48 @@
+.expansion-panel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    
+
+  }
+
+.addicon{
+    margin: auto 0.5rem auto auto;
+}
+
+button.mat-mdc-raised-button.mat-primary {
+  margin: 1rem auto 1rem auto;
+  background: rgb(8, 76, 172);
+ 
+}
+  
+  .expansion-panel {
+    flex: 1;
+  }
+
+  .fullWidth{
+    width: 100%;
+}
+  
+  .delete-button {
+  
+        background-color: #ff2f00; /* Cor de fundo */
+        color: #fff; /* Cor do texto */
+        padding: 10px 20px; /* Espaçamento interno */
+        border: none;
+        border-radius: 5px; /* Borda arredondada */
+        cursor: pointer;
+        transition: background-color 0.3s; /* Animação de transição */
+
+        .fas {
+            margin-right: 5px; /* Espaço entre o ícone e o texto */
+          }
+        
+          /* Efeito de hover */
+          &:hover {
+            background-color: #e74c3c; /* Altera a cor de fundo ao passar o mouse */
+          }
+        
+  }
+  

@@ -1,0 +1,24 @@
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+table{
+    width: 100%;
+}
+
+mat-form-field{
+    width: 70%;
+    margin-right: 1rem;
+}
+
+button.mat-mdc-raised-button.mat-primary {
+    margin: 1rem auto 1rem auto;
+    background: rgb(8, 76, 172);
+   
+}
+
+
+.addicon{
+    margin: auto 0.5rem auto auto;
+}

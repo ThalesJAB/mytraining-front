@@ -1,0 +1,67 @@
+.container{
+
+    width: 50%;
+    margin: auto;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius: .6rem;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.dateWidth{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.datePicker{
+    margin-right: 1rem;
+}
+@media (max-width: 768px) {
+    .datePicker {
+        flex-basis: 100%; /* Quando a resolução for menor que 768px, ocupa 100% */
+        margin-right: 0; /* Remove a margem para ocupar toda a largura */
+    }
+}
+
+
+::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label{
+    color: rgb(8, 76, 172) !important;;
+}
+
+
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after{
+    border-bottom-color: rgb(8, 76, 172) !important;
+}
+
+h1{
+    text-align: center;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    font-family: Dejavu Sans, Arial, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(8, 76, 172);
+  }
+
+h2{
+    width: 100%;
+    text-align: center;
+    font-family: Dejavu Sans, Arial, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(8, 76, 172);
+    margin: 1rem auto
+  
+}
+
+button.mat-mdc-raised-button.mat-primary {
+    margin: 1rem auto 1rem auto;
+    background: rgb(8, 76, 172);
+   
+}
+.addicon{
+    margin: auto 0.5rem auto auto;
+}
