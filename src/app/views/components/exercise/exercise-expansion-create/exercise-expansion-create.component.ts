@@ -22,7 +22,11 @@ export class ExerciseExpansionCreateComponent implements OnInit{
 
   formulario!: FormGroup;
 
+  @Input() exercisetwo!: Exercise;
+
   @Output() formDataSaved = new EventEmitter<Exercise>();
+
+  @Output() deleteExerciseEvent = new EventEmitter<Exercise>();
 
   @ViewChild('expansionPanel') expansionPanel!: MatExpansionPanel;
 
@@ -33,20 +37,18 @@ export class ExerciseExpansionCreateComponent implements OnInit{
   }
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      name:['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      description:['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-      reps:[Validators.required],
-      sets:[Validators.required],
-      rest:['', [Validators.required]],
-
-
+      name:[this.exercisetwo.name, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      description:[this.exercisetwo.description, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      reps:[this.exercisetwo.reps,[Validators.required]],
+      sets:[this.exercisetwo.sets, [Validators.required]],
+      rest:[this.exercisetwo.rest, [Validators.required]],
     })
   }
 
   addExercise(){
     if (this.formulario.valid) {
+      
       const formData = this.formulario.value;
-
       this.exercise.name = formData.name;
       this.exercise.description = formData.description;
       this.exercise.reps = formData.reps;
@@ -66,11 +68,9 @@ export class ExerciseExpansionCreateComponent implements OnInit{
 
   }
 
+  deleteExercise(exercise: Exercise){
+    this.deleteExerciseEvent.emit(exercise);
 
-
-
-
-
-
+  }
 
 }

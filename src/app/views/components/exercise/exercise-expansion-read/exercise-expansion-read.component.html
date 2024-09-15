@@ -11,37 +11,33 @@
 
             <mat-form-field class="fullWidth">
                 <mat-label>Nome</mat-label>
-                <input [readonly]="!isEditingEnabled" matInput type="text" name="name"
+                <input [readonly]="!isEditingEnabled" value={{exercise.name}} matInput type="text" name="name"
                     placeholder="Ex. Elevação lateral" />
             </mat-form-field>
 
 
             <mat-form-field class="fullWidth">
                 <mat-label>Descrição</mat-label>
-                <textarea [readonly]="!isEditingEnabled" matInput type="text" name="description"
+                <textarea [readonly]="!isEditingEnabled" value={{exercise.description}} matInput type="text" name="description"
                     placeholder="Ex. Elevação lateral com halteres"></textarea>
             </mat-form-field>
 
             <mat-form-field class="fullWidth">
                 <mat-label>Repetições</mat-label>
-                <input [readonly]="!isEditingEnabled" matInput type="number" name="reps" placeholder="Ex. 12" />
+                <input [readonly]="!isEditingEnabled" value={{exercise.reps}} matInput type="number" name="reps" placeholder="Ex. 12" />
             </mat-form-field>
 
             <mat-form-field class="fullWidth">
                 <mat-label>Séries</mat-label>
-                <input [readonly]="!isEditingEnabled" matInput type="number" name="sets" placeholder="Ex. 4" />
+                <input [readonly]="!isEditingEnabled" value={{exercise.sets}} matInput type="number" name="sets" placeholder="Ex. 4" />
             </mat-form-field>
 
             <mat-form-field class="fullWidth">
                 <mat-label>Descanso</mat-label>
-                <input [readonly]="!isEditingEnabled" matInput type="text" name="rest"
+                <input [readonly]="!isEditingEnabled" value={{exercise.rest}} matInput type="text" name="rest"
                     placeholder="Ex. 30 segundos de descanso" />
             </mat-form-field>
 
-
         </mat-expansion-panel>
     </mat-accordion>
-
-
-    <button class="delete-button"><i class="material-icons">delete</i></button>
 </div>

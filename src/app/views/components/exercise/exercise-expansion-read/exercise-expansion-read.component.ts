@@ -1,6 +1,4 @@
-import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatExpansionPanel } from '@angular/material/expansion';
+import { Component, Input } from '@angular/core';
 import { Exercise } from 'src/app/models/exercise.model';
 
 @Component({
@@ -11,13 +9,13 @@ import { Exercise } from 'src/app/models/exercise.model';
 export class ExerciseExpansionReadComponent {
   @Input() exercise!: Exercise;
 
-  isEditingEnabled: boolean = true;
+  isEditingEnabled: boolean = false;
 
   constructor(){
 
   }
   ngOnInit(): void {
-    
+    console.log(this.exercise)
   }
 
 }
