@@ -32,14 +32,8 @@
     </span>
 
     <div>
-
-
-      <app-exercise-expansion-create *ngFor="let exercicio of listaDeExercicios"
-        (formDataSaved)="saveExercise($event)">
-
-
-
-
+      <app-exercise-expansion-create *ngFor="let exercicio of workout.exerciseList"
+        (formDataSaved)="saveExercise($event, exercicio.id)" (deleteExerciseEvent)="deleteExercise($event, exercicio.id)" [exercisetwo]="exercicio" >
       </app-exercise-expansion-create>
     </div>
   </form>

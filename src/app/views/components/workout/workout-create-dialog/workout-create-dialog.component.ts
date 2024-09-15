@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 import { Exercise } from "src/app/models/exercise.model";
 import { TrainingType } from "src/app/models/trainingtype.model";
+import { v4 as uuid } from "uuid";
 
 import { Workout } from "src/app/models/workout.model";
 
@@ -20,9 +21,6 @@ export class WorkoutCreateDialogComponent implements OnInit {
   };
 
   listaDeExercicios: string[] = [];
-
- 
-
 
   trainingTypes: TrainingType[] = [
     { value: 1, viewValue: "A" },
@@ -85,18 +83,33 @@ export class WorkoutCreateDialogComponent implements OnInit {
     this.workout.exerciseList?.push(newExercise);
     
 */
-  this.listaDeExercicios.push('Novo exercício');
+
+  this.workout.exerciseList?.push({
+    id: uuid(),
+    name: '',
+    description: '',
+    reps: 0,
+    sets: 0,
+    rest: '',
+  });
+
     
   }
 
-  saveExercise(exercise: Exercise){
-    this.workout.exerciseList?.push(exercise)
- 
-
-    console.log(this.workout.exerciseList)
+  saveExercise(exercise: Exercise, id: String){    
+    const index = this.workout.exerciseList!.findIndex(ex => ex.id === id);
+    if (index >= 0){
+      this.workout.exerciseList![index] = {
+       ...exercise, id: id
+      }
+    }
   }
 
-
-
+  deleteExercise(exercise: Exercise, id: String){
+    const index = this.workout.exerciseList!.findIndex(ex => ex.id === id);
+    if (index !== -1) {
+      this.workout.exerciseList!.splice(index, 1);
+    }
+  }
 
 }

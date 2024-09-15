@@ -4,8 +4,8 @@
             <mat-expansion-panel #expansionPanel>
                 <mat-expansion-panel-header>
                     <mat-panel-title> 
-                        <ng-container *ngIf="exercise.name; else noTitle">
-                            {{exercise.name}}
+                        <ng-container *ngIf="exercisetwo.name; else noTitle">
+                            {{exercisetwo.name}}
                         </ng-container>
                         <ng-template #noTitle>
                             Novo Exercício
@@ -15,32 +15,32 @@
 
                 <mat-form-field class="fullWidth" >
                     <mat-label>Nome</mat-label>
-                    <input [readonly]="!isEditingEnabled"  [(ngModel)]="exercise.name" matInput type="text" formControlName="name" name="name"
+                    <input [readonly]="!isEditingEnabled"  [(ngModel)]="exercisetwo.name" matInput type="text" formControlName="name" name="name"
                         placeholder="Ex. Elevação lateral" />
                 </mat-form-field>
 
 
                 <mat-form-field class="fullWidth">
                     <mat-label>Descrição</mat-label>
-                    <textarea [readonly]="!isEditingEnabled" [(ngModel)]="exercise.description" matInput formControlName="description" type="text"
+                    <textarea [readonly]="!isEditingEnabled" [(ngModel)]="exercisetwo.description" matInput formControlName="description" type="text"
                         name="description" placeholder="Ex. Elevação lateral com halteres"></textarea>
                 </mat-form-field>
 
                 <mat-form-field class="fullWidth">
                     <mat-label>Repetições</mat-label>
-                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercise.reps" matInput type="number" formControlName="reps" name="reps"
+                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercisetwo.reps" matInput type="number" formControlName="reps" name="reps"
                         placeholder="Ex. 12" />
                 </mat-form-field>
 
                 <mat-form-field class="fullWidth">
                     <mat-label>Séries</mat-label>
-                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercise.sets" matInput type="number" formControlName="sets" name="sets"
+                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercisetwo.sets" matInput type="number" formControlName="sets" name="sets"
                         placeholder="Ex. 4" />
                 </mat-form-field>
 
                 <mat-form-field class="fullWidth">
                     <mat-label>Descanso</mat-label>
-                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercise.rest" matInput type="text" formControlName="rest" name="rest"
+                    <input [readonly]="!isEditingEnabled" [(ngModel)]="exercisetwo.rest" matInput type="text" formControlName="rest" name="rest"
                         placeholder="Ex. 30 segundos de descanso" />
                 </mat-form-field>
                 
@@ -57,5 +57,7 @@
         </mat-accordion>
     </form>
 
-    <button class="delete-button"><i class="material-icons">delete</i></button>
+    <button (click)="deleteExercise(exercise)" class="delete-button">
+        <i class="material-icons">delete</i>
+    </button>
 </div>

@@ -25,9 +25,6 @@
                 <mat-datepicker #startDatePicker></mat-datepicker>
             </mat-form-field>
 
-
-
-
             <mat-form-field class="datePicker">
                 <mat-label>Data de Término</mat-label>
                 <input [(ngModel)]="workoutPlan.finishDate" matInput formControlName="finishDate" name="finishDate"
@@ -48,28 +45,14 @@
                 Adicionar treino</button>
         </span>
 
-
-
         <div>
-
-            <app-workout-expansion-panel *ngFor="let workout of workoutPlan.workoutsList"
+            <app-workout-expansion-read *ngFor="let workout of workoutPlan.workoutsList"
                 [workout]="workout"
-                (deleteWorkoutEvent)="deleteWorkout($event)"
+                (deleteWorkoutEvent)="deleteWorkout($event)">
                 
-            ></app-workout-expansion-panel>
-
-
+            </app-workout-expansion-read>
         </div>
 
-
     </form>
-
-
-
-
-
-
-
-
 
 </div>

@@ -35,9 +35,6 @@
     border-bottom-color: rgb(8, 76, 172) !important;
 }
 
-h1{
-    text-align: center;
-}
 
 h1 {
     width: 100%;
@@ -65,3 +62,4 @@ button.mat-mdc-raised-button.mat-primary {
 .addicon{
     margin: auto 0.5rem auto auto;
 }
+
