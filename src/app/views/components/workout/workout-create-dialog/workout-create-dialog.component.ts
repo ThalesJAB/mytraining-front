@@ -13,14 +13,13 @@ import { Workout } from "src/app/models/workout.model";
   styleUrls: ["./workout-create-dialog.component.css"],
 })
 export class WorkoutCreateDialogComponent implements OnInit {
+
   workout: Workout = {
     name: "",
     description: "",
     trainingType: "",
     exerciseList: [],
   };
-
-  listaDeExercicios: string[] = [];
 
   trainingTypes: TrainingType[] = [
     { value: 1, viewValue: "A" },
@@ -71,18 +70,6 @@ export class WorkoutCreateDialogComponent implements OnInit {
   }
 
   addExercise(){
-    /*
-    const newExercise: Exercise = {
-      name: '',
-      description: '',
-      reps: 0,
-      sets: 0,
-      rest: '',
-    };
-
-    this.workout.exerciseList?.push(newExercise);
-    
-*/
 
   this.workout.exerciseList?.push({
     id: uuid(),
@@ -92,7 +79,6 @@ export class WorkoutCreateDialogComponent implements OnInit {
     sets: 0,
     rest: '',
   });
-
     
   }
 
