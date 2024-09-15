@@ -1,0 +1,53 @@
+<div class="expansion-panel-container">
+  
+    <mat-accordion class="expansion-panel">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ workout.name }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+
+        <mat-form-field class="fullWidth">
+          <mat-label>Título</mat-label>
+          <input [readonly]="!isEditingEnabled" value={{workout.name}} matInput type="text" 
+            name="name" placeholder="Ex. Treino Peito e Tríceps" />
+        </mat-form-field>
+
+         <mat-form-field class="fullWidth">
+          <mat-label>Descrição</mat-label>
+          <textarea [readonly]="!isEditingEnabled" value={{workout.description}} matInput type="text"
+             name="description"
+            placeholder="Ex. Treino de força, aumento de carga"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Tipo de treino</mat-label>
+          <mat-select value="{{workout.trainingType}}" name="trainingType" >
+            <mat-option value="{{workout.trainingType}}" >
+              {{workout.trainingType}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+    
+
+        <h3>Lista de Exercícios</h3>
+    
+      
+        <app-exercise-expansion-read *ngFor="let exercise of workout.exerciseList" 
+        [exercise]="exercise">
+        
+        </app-exercise-expansion-read>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+ 
+  
+    <button (click)="deleteWorkout(workout)" class="delete-button">
+      <i class="material-icons">delete</i>
+    </button>
+</div>

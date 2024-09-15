@@ -50,10 +50,9 @@ import { LoginComponent } from './views/components/login/login.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { WorkoutPlanCreateComponent } from './views/components/workoutplan/workout-plan-create/workout-plan-create.component';
 import { WorkoutCreateDialogComponent } from './views/components/workout/workout-create-dialog/workout-create-dialog.component';
-import { WorkoutExpansionPanelComponent } from './views/components/workout/workout-expansion-panel/workout-expansion-panel.component';
+import { WorkoutExpansionReadComponent } from './views/components/workout/workout-expansion-read/workout-expansion-read.component'
 import { ExerciseExpansionCreateComponent } from './views/components/exercise/exercise-expansion-create/exercise-expansion-create.component';
 import { ExerciseExpansionReadComponent } from './views/components/exercise/exercise-expansion-read/exercise-expansion-read.component';
-
 
 
 
@@ -69,7 +68,7 @@ import { ExerciseExpansionReadComponent } from './views/components/exercise/exer
     LoginComponent,
     WorkoutPlanCreateComponent,
     WorkoutCreateDialogComponent,
-    WorkoutExpansionPanelComponent,
+    WorkoutExpansionReadComponent,
     ExerciseExpansionCreateComponent,
     ExerciseExpansionReadComponent,
   
