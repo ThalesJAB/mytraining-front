@@ -22,9 +22,9 @@ export class ExerciseExpansionCreateComponent implements OnInit{
 
   formulario!: FormGroup;
 
-  @Input() exercisetwo!: Exercise;
+  @Input() exerciseForm!: Exercise;
 
-  @Output() formDataSaved = new EventEmitter<Exercise>();
+  @Output() exerciseSaveEvent = new EventEmitter<Exercise>();
 
   @Output() deleteExerciseEvent = new EventEmitter<Exercise>();
 
@@ -37,11 +37,11 @@ export class ExerciseExpansionCreateComponent implements OnInit{
   }
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
-      name:[this.exercisetwo.name, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      description:[this.exercisetwo.description, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-      reps:[this.exercisetwo.reps,[Validators.required]],
-      sets:[this.exercisetwo.sets, [Validators.required]],
-      rest:[this.exercisetwo.rest, [Validators.required]],
+      name:[this.exerciseForm.name, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      description:[this.exerciseForm.description, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      reps:[this.exerciseForm.reps,[Validators.required]],
+      sets:[this.exerciseForm.sets, [Validators.required]],
+      rest:[this.exerciseForm.rest, [Validators.required]],
     })
   }
 
@@ -55,7 +55,7 @@ export class ExerciseExpansionCreateComponent implements OnInit{
       this.exercise.sets = formData.sets;
       this.exercise.rest = formData.rest;
 
-      this.formDataSaved.emit(this.exercise);
+      this.exerciseSaveEvent.emit(this.exercise);
       this.isEditingEnabled=false;
       console.log('isEditingEnabled:', this.isEditingEnabled);
       if (this.expansionPanel) {

@@ -33,7 +33,7 @@
 
     <div>
       <app-exercise-expansion-create *ngFor="let exercicio of workout.exerciseList"
-        (formDataSaved)="saveExercise($event, exercicio.id)" (deleteExerciseEvent)="deleteExercise($event, exercicio.id)" [exercisetwo]="exercicio" >
+        (exerciseSaveEvent)="saveExercise($event, exercicio.id)" (deleteExerciseEvent)="deleteExercise($event, exercicio.id)" [exerciseForm]="exercicio" >
       </app-exercise-expansion-create>
     </div>
   </form>
