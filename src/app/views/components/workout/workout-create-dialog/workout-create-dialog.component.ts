@@ -22,11 +22,11 @@ export class WorkoutCreateDialogComponent implements OnInit {
   };
 
   trainingTypes: TrainingType[] = [
-    { value: 1, viewValue: "A" },
-    { value: 2, viewValue: "B" },
-    { value: 3, viewValue: "C" },
-    { value: 4, viewValue: "D" },
-    { value: 5, viewValue: "E" },
+    { value: "A", viewValue: "A" },
+    { value: "B", viewValue: "B" },
+    { value: "C", viewValue: "C" },
+    { value: "D", viewValue: "D" },
+    { value: "E", viewValue: "E" },
   ];
 
   formulario!: FormGroup;
