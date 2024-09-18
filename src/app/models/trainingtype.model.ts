@@ -1,4 +1,4 @@
 export interface TrainingType {
-  value: Number;
-  viewValue: string;
+  value: String;
+  viewValue: String;
 }
