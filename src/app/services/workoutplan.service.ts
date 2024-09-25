@@ -18,4 +18,11 @@ export class WorkoutplanService {
     const url = `${API_CONFIG.baseUrl}/persons/workoutplans`;
     return this.http.get<WorkoutPlan[]>(url);
   }
+
+  create(workoutplan:WorkoutPlan):Observable<WorkoutPlan>{
+    const url = `${API_CONFIG.baseUrl}/persons/workoutplans`;
+    return this.http.post<WorkoutPlan>(url, workoutplan);
+  }
+
+  
 }

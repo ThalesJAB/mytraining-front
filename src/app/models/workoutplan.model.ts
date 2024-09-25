@@ -7,6 +7,7 @@ export interface WorkoutPlan {
     startDate: any;
     finishDate: any;
     workoutsList?: Workout[];
+    person?: any;
     
   }
   
