@@ -4,6 +4,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { WorkoutPlan } from "src/app/models/workoutplan.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Workout } from "src/app/models/workout.model";
+import { WorkoutplanService } from "src/app/services/workoutplan.service";
+
 
 @Component({
   selector: "app-workout-plan-create",
@@ -28,6 +30,7 @@ export class WorkoutPlanCreateComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public dialogCreateWorkout: MatDialog,
+    private service: WorkoutplanService
     
   ) {}
 
@@ -70,4 +73,44 @@ export class WorkoutPlanCreateComponent implements OnInit {
       this.workoutPlan.workoutsList!.splice(index, 1);
     }
   }
+
+  createWorkoutPlan(){
+    if(this.formulario.valid){
+      this.dialogData = this.formulario.value;
+      this.workoutPlan.workoutsList?.forEach((workout) => {
+        workout.id = null
+        workout.exerciseList?.forEach((exercise) => {
+          exercise.id = null
+        })
+      })
+      this.dialogData.workoutsList = this.workoutPlan.workoutsList;
+      this.dialogData.startDate = this.formatDate(this.dialogData.startDate);
+      this.dialogData.finishDate = this.formatDate(this.dialogData.finishDate);
+      console.log(this.dialogData.startDate);
+      console.log(this.dialogData.finishDate);
+      this.dialogData.id = null
+      this.dialogData.person = null
+
+      this.service.create(this.dialogData).subscribe({
+        next: (response) => {
+          // QUANDO TIVER TELA PARA VISUALIZAR OS DADOS, ENVIAR A RESPOSTA DA REQUISICAO NA TELA DE VISUALIZACAO
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
+  }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Meses começam em 0
+    const year = date.getFullYear();
+    
+    // Retorna no formato dd/MM/yyyy
+    return `${day}/${month}/${year}`;
+  }
+
+
 }
